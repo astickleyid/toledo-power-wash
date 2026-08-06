@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { site as biz } from "../lib/site";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://toledopowerwash.com";
+const siteUrl = biz.url;
+const telephone = biz.phone || undefined;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -48,8 +50,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "Commercial and residential power washing and soft washing serving Toledo and Northwest Ohio.",
     url: siteUrl,
     image: `${siteUrl}/og.png`,
-    telephone: "",
-    email: "austin@toledopowerwash.com",
+    telephone: telephone || undefined,
+    email: biz.email,
     priceRange: "$$",
     address: {
       "@type": "PostalAddress",

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { phoneHref, phoneLabel, site } from "../lib/site";
 
 const links = [
   { href: "/#services", label: "Services" },
@@ -9,6 +10,7 @@ const links = [
 ];
 
 export function Header() {
+  const tel = phoneHref();
   return (
     <header className="sticky top-0 z-50 border-b border-steel/60 bg-ink/85 backdrop-blur-md">
       <div className="container-page flex h-16 items-center justify-between gap-4">
@@ -17,7 +19,7 @@ export function Header() {
             TP
           </span>
           <span className="leading-tight">
-            <span className="block text-sm text-white sm:text-base">Toledo Power Wash</span>
+            <span className="block text-sm text-white sm:text-base">{site.name}</span>
             <span className="hidden text-[11px] font-medium text-mute sm:block">
               Toledo, Ohio · Commercial & Residential
             </span>
@@ -29,10 +31,22 @@ export function Header() {
               {l.label}
             </Link>
           ))}
+          {tel && (
+            <a href={tel} className="font-semibold text-sky hover:text-white">
+              {phoneLabel()}
+            </a>
+          )}
         </nav>
-        <Link href="/contact" className="btn-primary !px-4 !py-2 text-xs sm:text-sm">
-          Free Quote
-        </Link>
+        <div className="flex items-center gap-2">
+          {tel && (
+            <a href={tel} className="btn-secondary !hidden !px-3 !py-2 text-xs sm:!inline-flex">
+              Call
+            </a>
+          )}
+          <Link href="/contact" className="btn-primary !px-4 !py-2 text-xs sm:text-sm">
+            Free Quote
+          </Link>
+        </div>
       </div>
     </header>
   );

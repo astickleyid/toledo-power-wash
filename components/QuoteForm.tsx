@@ -1,9 +1,11 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { phoneHref, phoneLabel, site } from "../lib/site";
 
 export function QuoteForm({ compact = false }: { compact?: boolean }) {
   const [status, setStatus] = useState<"idle" | "sent" | "error">("idle");
+  const tel = phoneHref();
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,12 +29,11 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
         "",
         message,
         "",
-        "— Sent from toledopowerwash.com quote form",
+        "— Sent from Toledo Power Wash quote form",
       ].join("\n")
     );
 
-    // Works immediately without backend; swap for API later
-    window.location.href = `mailto:austin@toledopowerwash.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
     setStatus("sent");
     form.reset();
   }
@@ -106,10 +107,18 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       <button type="submit" className="btn-primary mt-6 w-full sm:w-auto">
         Request free quote
       </button>
+      {tel && (
+        <p className="mt-4 text-sm text-mute">
+          Prefer to talk? Call{" "}
+          <a href={tel} className="font-semibold text-sky hover:underline">
+            {phoneLabel()}
+          </a>
+        </p>
+      )}
       {status === "sent" && (
         <p className="mt-3 text-sm text-green-400">
-          Opening your email app with the quote details. If it didn’t open, call or text Austin
-          directly.
+          Opening your email app with the quote details.
+          {tel ? ` Or call ${phoneLabel()}.` : " If it didn’t open, email Austin directly."}
         </p>
       )}
     </form>
