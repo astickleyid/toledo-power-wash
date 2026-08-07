@@ -104,7 +104,7 @@ for (const n of nums) {
 console.log("Buying", chosen.phone_number, chosen.locality, chosen.region);
 const bought = await twilio("POST", `/Accounts/${sid}/IncomingPhoneNumbers.json`, {
   PhoneNumber: chosen.phone_number,
-  FriendlyName: "Toledo Power Wash - Austin Stickley",
+  FriendlyName: "Glass City Power Wash - Austin Stickley",
 });
 
 const e164 = bought.phone_number;
@@ -114,7 +114,7 @@ const pretty =
     : e164;
 
 const out = {
-  business: "Toledo Power Wash",
+  business: "Glass City Power Wash",
   owner: "Austin Stickley",
   phone_e164: e164,
   phone_display: pretty,
@@ -133,7 +133,7 @@ const envLocal = path.join(root, ".env.local");
 const lines = [
   `NEXT_PUBLIC_PHONE=${e164}`,
   `NEXT_PUBLIC_PHONE_DISPLAY=${pretty}`,
-  `NEXT_PUBLIC_EMAIL=austin@toledopowerwash.com`,
+  `NEXT_PUBLIC_EMAIL=austin@glasscitypowerwash.com`,
 ];
 let existing = fs.existsSync(envLocal) ? fs.readFileSync(envLocal, "utf8") : "";
 for (const line of lines) {

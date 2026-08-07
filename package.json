@@ -2,7 +2,7 @@
   "name": "toledo-power-wash",
   "version": "1.0.0",
   "private": true,
-  "description": "Toledo Power Wash — commercial & residential power washing in Toledo, OH",
+  "description": "Glass City Power Wash — commercial & residential power washing in Toledo, OH",
   "scripts": {
     "dev": "next dev -p 3007",
     "build": "next build",

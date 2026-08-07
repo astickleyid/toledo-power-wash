@@ -18,12 +18,13 @@ const siteUrl = site.url.startsWith("http")
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Toledo Power Wash | Power Washing in Toledo, OH",
-    template: "%s | Toledo Power Wash",
+    default: "Glass City Power Wash | Power Washing in Toledo, OH",
+    template: "%s | Glass City Power Wash",
   },
   description:
     "Professional power washing in Toledo, Ohio. House washing, driveways, parking lots, dumpster pads, and commercial exterior cleaning. Free estimates. Serving Toledo and Northwest Ohio. Owned by Austin Stickley.",
   keywords: [
+    "Glass City Power Wash",
     "Toledo power washing",
     "Toledo power wash",
     "power washing Toledo OH",
@@ -34,6 +35,7 @@ export const metadata: Metadata = {
     "dumpster pad cleaning Toledo",
     "parking lot cleaning Toledo",
     "pressure washing near me Toledo",
+    "Glass City power washing",
   ],
   authors: [{ name: site.owner }],
   openGraph: {
@@ -41,14 +43,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: site.name,
-    title: "Toledo Power Wash | Power Washing in Toledo, OH",
+    title: "Glass City Power Wash | Power Washing in Toledo, OH",
     description:
       "Professional power washing for homes and businesses in Toledo and Northwest Ohio. Free estimates.",
     images: [{ url: "/logo.png", width: 1200, height: 630, alt: site.name }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Toledo Power Wash | Power Washing Toledo OH",
+    title: "Glass City Power Wash | Power Washing Toledo OH",
     description: "Professional power washing in Toledo, Ohio. Free estimates.",
   },
   robots: { index: true, follow: true },

@@ -1,67 +1,39 @@
-# Toledo Power Wash
+# Glass City Power Wash
 
-**Legal working name:** Toledo Power Wash LLC (to file)  
+**Legal:** Glass City Power Wash LLC (to file)  
 **Owner:** Austin Stickley  
-**Market:** Toledo, OH + NW Ohio / greater metro  
-**Model:** Commercial-first pressure washing & soft washing with residential fill  
+**Market:** Toledo, OH + Northwest Ohio  
+**Model:** Commercial-first power washing & soft washing; residential fill  
 
 ## Why this name
 
-- Matches high-intent local searches: “Toledo power wash”, “Toledo power washing”, “power washing Toledo OH”
-- City + service = strongest Google Business Profile / Maps pattern for home services
-- Easy to say on cold calls to property managers
-- Domain target: `toledopowerwash.com`
+- **Glass City** = Toledo’s nickname → local, ownable brand (not another “Toledo Power Wash”)
+- **Power Wash** = service keyword for search + clarity on trucks and cold calls
+- SEO still wins with titles like: `Glass City Power Wash | Power Washing in Toledo, OH`
 
-## Taglines
+## Positioning
 
-- Primary: **Commercial & residential power washing in Toledo, Ohio**
-- Short: **Clean exteriors. Local crew. Recurring plans.**
-- PM-facing: **Keep your properties looking managed — monthly & quarterly plans**
+- GBP name: **Glass City Power Wash**
+- Site H1: **Professional power washing in Toledo, OH**
+- Tagline: Professional power washing for homes and businesses in Toledo, Ohio
 
-## Brand voice
+## Domains
 
-- Direct, local, trustworthy
-- No hype, no gimmicks
-- Property-manager friendly: COI, photos, recurring schedules
+- Primary target: `glasscitypowerwash.com`
+- Live now: `toledo-power-wash.vercel.app` (project slug; rebrand later if desired)
 
 ## Colors
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| Ink | `#0B1220` | Backgrounds |
-| Navy | `#0F2744` | Headers, cards |
-| Steel | `#1E3A5F` | Borders |
-| Sky | `#3B82F6` | Primary CTA |
-| Ice | `#E8F1FF` | Light text accents |
-| White | `#F8FAFC` | Body on dark |
-| Muted | `#94A3B8` | Secondary text |
-| Success | `#22C55E` | Badges / proof |
+| Navy | `#0F172A` | Headlines, footer |
+| Teal | `#0F766E` | Accents, CTAs |
+| Slate | `#334155` / `#64748B` | Body text |
+| White / soft | `#FFFFFF` / `#F8FAFC` | Backgrounds |
 
-## Typography
+## NAP
 
-- Headings: system UI / Inter-style geometric sans
-- Body: system UI sans
-
-## NAP (fill when ready)
-
-- **Name:** Toledo Power Wash  
-- **Address:** [Toledo service-area / home base — set for GBP]  
-- **Phone:** [Austin’s business line]  
-- **Email:** hello@toledopowerwash.com (or Gmail until domain)  
+- **Name:** Glass City Power Wash  
 - **Owner:** Austin Stickley  
-
-## SEO keyword stack (primary)
-
-1. Toledo power washing  
-2. Toledo pressure washing  
-3. power washing Toledo OH  
-4. commercial power washing Toledo  
-5. apartment pressure washing Toledo  
-6. dumpster pad cleaning Toledo  
-7. parking lot cleaning Toledo  
-8. house washing Toledo  
-
-## Competitive positioning
-
-Not the cheapest weekend warrior.  
-**Reliable commercial exterior vendor** with photo docs, insurance, and recurring packages — also takes residential work while ramping.
+- **Email:** austin@glasscitypowerwash.com (until domain mail is set)  
+- **Phone:** [set when live]  

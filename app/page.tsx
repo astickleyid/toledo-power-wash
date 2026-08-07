@@ -92,7 +92,7 @@ export default function HomePage() {
       {/* WHY US */}
       <section className="border-y border-slate-200 bg-slate-50">
         <div className="wrap py-16 sm:py-20">
-          <h2 className="section-title">Why hire Toledo Power Wash</h2>
+          <h2 className="section-title">Why hire Glass City Power Wash</h2>
           <p className="section-lead">
             Property owners and managers need a vendor who shows up prepared, protects the site, and
             documents the work.

@@ -1,14 +1,16 @@
 /** Central business contact + SEO config */
 export const site = {
-  name: "Toledo Power Wash",
+  name: "Glass City Power Wash",
   owner: "Austin Stickley",
-  email: process.env.NEXT_PUBLIC_EMAIL || "austin@toledopowerwash.com",
+  email: process.env.NEXT_PUBLIC_EMAIL || "austin@glasscitypowerwash.com",
   phone: process.env.NEXT_PUBLIC_PHONE || "",
   phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "",
   city: "Toledo, OH",
   region: "Northwest Ohio",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://toledo-power-wash.vercel.app",
   tagline: "Professional power washing for homes and businesses in Toledo, Ohio",
+  legalName: "Glass City Power Wash LLC",
+  gbpName: "Glass City Power Wash",
 };
 
 export function phoneHref(): string | null {

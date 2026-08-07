@@ -1,6 +1,6 @@
-# Toledo Power Wash
+# Glass City Power Wash
 
-Marketing website for **Toledo Power Wash** — commercial & residential power washing in Toledo, Ohio.  
+Marketing website for **Glass City Power Wash** — commercial & residential power washing in Toledo, Ohio.  
 Owner: **Austin Stickley**.
 
 ## Why this name
@@ -28,10 +28,10 @@ vercel
 Set env (optional):
 
 ```
-NEXT_PUBLIC_SITE_URL=https://toledopowerwash.com
+NEXT_PUBLIC_SITE_URL=https://glasscitypowerwash.com
 ```
 
-Buy **toledopowerwash.com** and attach it in Vercel.
+Buy **glasscitypowerwash.com** and attach it in Vercel.
 
 ## Pages
 
@@ -52,4 +52,4 @@ Buy **toledopowerwash.com** and attach it in Vercel.
 ## Ops companion
 
 Local sales/ops hub: `../pressure-ops` (Pressure Ops)  
-Identity should match: Toledo Power Wash · Austin Stickley
+Identity should match: Glass City Power Wash · Austin Stickley

@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none" role="img" aria-label="Toledo Power Wash">
-  <path d="M20 8c-6.6 0-12 5.4-12 12 0 8.5 12 20 12 20s12-11.5 12-20c0-6.6-5.4-12-12-12z" fill="#0F766E"/>
-  <path d="M20 14c-3.3 0-6 2.7-6 6 0 4.2 6 10 6 10s6-5.8 6-10c0-3.3-2.7-6-6-6z" fill="#fff" opacity=".9"/>
-  <line x1="38" y1="34" x2="56" y2="34" stroke="#0F766E" stroke-width="3" stroke-linecap="round"/>
-  <text x="64" y="22" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#0F172A" letter-spacing="0.02em">TOLEDO</text>
-  <text x="64" y="38" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#334155" letter-spacing="0.04em">POWER WASH</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 48" fill="none" role="img" aria-label="Glass City Power Wash">
+  <path d="M18 8c-6.1 0-11 4.9-11 11 0 7.8 11 18.5 11 18.5S29 26.8 29 19c0-6.1-4.9-11-11-11z" fill="#0F766E"/>
+  <path d="M18 13.5c-3 0-5.5 2.5-5.5 5.5 0 3.9 5.5 9.2 5.5 9.2s5.5-5.3 5.5-9.2c0-3-2.5-5.5-5.5-5.5z" fill="#fff" opacity=".92"/>
+  <line x1="36" y1="33" x2="52" y2="33" stroke="#0F766E" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="60" y="21" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="14" font-weight="700" fill="#0F172A" letter-spacing="0.04em">GLASS CITY</text>
+  <text x="60" y="37" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12.5" font-weight="600" fill="#475569" letter-spacing="0.06em">POWER WASH</text>
 </svg>
