@@ -44,7 +44,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       className={`rounded-lg border border-line bg-white p-6 shadow-sm sm:p-8 ${compact ? "" : ""}`}
     >
       <div className="mb-6 border-b border-line pb-5">
-        <p className="text-xs font-bold uppercase tracking-widest text-water">Free quote</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-rust">Free quote</p>
         <h2 className="mt-1 font-display text-3xl font-extrabold tracking-tight text-ink">
           Tell us about the property
         </h2>
@@ -113,7 +113,7 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
       {tel && (
         <p className="mt-4 text-sm text-ink-soft">
           Or call{" "}
-          <a href={tel} className="font-bold text-water hover:underline">
+          <a href={tel} className="font-bold text-rust hover:underline">
             {phoneLabel()}
           </a>
         </p>

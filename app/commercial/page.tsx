@@ -35,7 +35,7 @@ export default function CommercialPage() {
     <>
       <section className="texture border-b border-line">
         <div className="wrap py-14 sm:py-16">
-          <p className="text-xs font-bold uppercase tracking-widest text-water">
+          <p className="text-xs font-bold uppercase tracking-widest text-rust">
             Property managers · Commercial
           </p>
           <h1 className="mt-3 max-w-3xl font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-ink sm:text-6xl">
@@ -81,14 +81,14 @@ export default function CommercialPage() {
                 </p>
               )}
               <h3 className="font-display text-3xl font-extrabold tracking-tight">{t.name}</h3>
-              <p className={`mt-1 text-lg font-bold ${t.featured ? "text-hivis" : "text-water"}`}>
+              <p className={`mt-1 text-lg font-bold ${t.featured ? "text-hivis" : "text-rust"}`}>
                 {t.price}
               </p>
               <p className={`text-sm ${t.featured ? "text-white/60" : "text-mud"}`}>{t.note}</p>
               <ul className="mt-5 space-y-2 text-sm">
                 {t.items.map((i) => (
                   <li key={i} className="flex gap-2">
-                    <span className={t.featured ? "text-hivis" : "text-water"}>✓</span>
+                    <span className={t.featured ? "text-hivis" : "text-rust"}>✓</span>
                     {i}
                   </li>
                 ))}

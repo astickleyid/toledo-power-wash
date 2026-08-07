@@ -4,16 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        concrete: "#ebe7df",
-        paper: "#f7f5f0",
-        ink: "#14161c",
-        "ink-soft": "#3a3f4b",
-        mud: "#6b6256",
-
-        water: "#0a6f9c",
-        "water-deep": "#074d6d",
-        hivis: "#ffb703",
-        line: "#d4cfc4",
+        concrete: "#e6e2d9",
+        paper: "#f4f1ea",
+        ink: "#111111",
+        "ink-soft": "#444444",
+        mud: "#6a635a",
+        rust: "#c2410c",
+        "rust-deep": "#9a3412",
+        hivis: "#f5a623",
+        line: "#d0cbc0",
       },
       fontFamily: {
         display: ["var(--font-display)", "Impact", "sans-serif"],

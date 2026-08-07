@@ -15,7 +15,7 @@ export default function ContactPage() {
     <section className="texture border-b border-line">
       <div className="wrap grid gap-12 py-14 lg:grid-cols-2 lg:py-16">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-water">Contact</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-rust">Contact</p>
           <h1 className="mt-2 font-display text-5xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
             Free quote.
             <br />
@@ -37,13 +37,13 @@ export default function ContactPage() {
               <div className="border border-line bg-white p-5 text-sm">
                 {tel && (
                   <p>
-                    <a href={tel} className="font-bold text-water hover:underline">
+                    <a href={tel} className="font-bold text-rust hover:underline">
                       {phoneLabel()}
                     </a>
                   </p>
                 )}
                 <p className="mt-1">
-                  <a href={`mailto:${site.email}`} className="text-ink-soft hover:text-water">
+                  <a href={`mailto:${site.email}`} className="text-ink-soft hover:text-rust">
                     {site.email}
                   </a>
                 </p>

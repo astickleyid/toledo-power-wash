@@ -43,14 +43,14 @@ export default function HomePage() {
         <div className="wrap grid items-center gap-10 py-12 lg:grid-cols-12 lg:gap-8 lg:py-16">
           <div className="lg:col-span-7">
             <p className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-widest text-ink">
-              <span className="h-2 w-2 rounded-full bg-water" />
+              <span className="h-2 w-2 rounded-full bg-ink" />
               Toledo, Ohio · Local owner
             </p>
 
             <h1 className="mt-5 font-display text-[clamp(2.75rem,8vw,5.5rem)] font-extrabold leading-[0.9] tracking-tight text-ink">
               Power washing
               <br />
-              <span className="text-water">that looks like</span>
+              <span className="text-rust">that looks like</span>
               <br />
               you give a damn.
             </h1>
@@ -127,7 +127,7 @@ export default function HomePage() {
       {/* WORK */}
       <section id="work" className="wrap py-16 sm:py-20">
         <div className="max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-widest text-water">What we clean</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-rust">What we clean</p>
           <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
             Built for commercial first.
             <br />
@@ -139,7 +139,7 @@ export default function HomePage() {
           {jobs.map((j, i) => (
             <article
               key={j.title}
-              className="group border border-line bg-white p-6 transition hover:border-water hover:shadow-md"
+              className="group border border-line bg-white p-6 transition hover:border-ink hover:shadow-md"
             >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="font-display text-2xl font-extrabold tracking-tight text-ink">
@@ -156,7 +156,7 @@ export default function HomePage() {
       </section>
 
       {/* PM BAND */}
-      <section className="bg-water text-white">
+      <section className="bg-ink text-white">
         <div className="wrap grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-16">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-hivis">
@@ -175,12 +175,12 @@ export default function HomePage() {
               <Link href="/commercial" className="btn-hivis">
                 See commercial packages
               </Link>
-              <Link href="/contact" className="btn border-2 border-white bg-transparent text-white hover:bg-white hover:text-water">
+              <Link href="/contact" className="btn border-2 border-white bg-transparent text-white hover:bg-white hover:text-rust">
                 Book a site walk
               </Link>
             </div>
           </div>
-          <ul className="space-y-3 rounded-lg border border-white/20 bg-water-deep/40 p-6 text-sm">
+          <ul className="space-y-3 rounded-lg border border-white/20 bg-black/25 p-6 text-sm">
             {[
               "Certificate of insurance for your vendor file",
               "Before & after photos every visit",
@@ -200,7 +200,7 @@ export default function HomePage() {
       {/* AREAS + QUOTE */}
       <section id="areas" className="wrap grid gap-12 py-16 lg:grid-cols-2 lg:py-20">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-water">Service area</p>
+          <p className="text-xs font-bold uppercase tracking-widest text-rust">Service area</p>
           <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
             Toledo & NW Ohio
           </h2>
@@ -244,7 +244,7 @@ export default function HomePage() {
       <section className="border-t border-line bg-concrete">
         <div className="wrap grid gap-8 py-16 md:grid-cols-5 md:py-20">
           <div className="md:col-span-2">
-            <p className="text-xs font-bold uppercase tracking-widest text-water">Owner</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-rust">Owner</p>
             <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink">
               Austin Stickley
             </h2>

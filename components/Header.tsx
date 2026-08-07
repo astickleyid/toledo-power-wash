@@ -21,17 +21,17 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-7 text-sm font-semibold text-ink-soft md:flex">
-          <Link href="/#work" className="hover:text-water">
+          <Link href="/#work" className="hover:text-rust">
             What we clean
           </Link>
-          <Link href="/commercial" className="hover:text-water">
+          <Link href="/commercial" className="hover:text-rust">
             Property managers
           </Link>
-          <Link href="/#areas" className="hover:text-water">
+          <Link href="/#areas" className="hover:text-rust">
             Service area
           </Link>
           {tel && (
-            <a href={tel} className="font-bold text-water hover:underline">
+            <a href={tel} className="font-bold text-rust hover:underline">
               {phoneLabel()}
             </a>
           )}
