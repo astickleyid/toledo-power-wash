@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astickleyid.github.io/toledo-power-wash/sitemap.xml
