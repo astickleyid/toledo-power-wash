@@ -3,63 +3,60 @@ import { QuoteForm } from "../../components/QuoteForm";
 import { phoneHref, phoneLabel, site } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Free Power Washing Quote — Toledo OH",
+  title: "Free Power Washing Estimate in Toledo, OH",
   description:
-    "Request a free Toledo power washing quote. Commercial and residential. Serving Toledo, Sylvania, Maumee, Perrysburg, and NW Ohio.",
+    "Request a free power washing estimate in Toledo, Ohio. Residential and commercial projects. Serving Toledo, Sylvania, Maumee, Perrysburg, and NW Ohio.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   const tel = phoneHref();
+  const label = phoneLabel();
 
   return (
-    <section className="texture border-b border-line">
+    <section className="border-b border-slate-200 bg-slate-50">
       <div className="wrap grid gap-12 py-14 lg:grid-cols-2 lg:py-16">
         <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-rust">Contact</p>
-          <h1 className="mt-2 font-display text-5xl font-extrabold leading-none tracking-tight text-ink sm:text-6xl">
-            Free quote.
-            <br />
-            Straight answer.
+          <p className="text-sm font-semibold text-teal-700">Contact</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            Free power washing estimate
           </h1>
-          <p className="mt-5 max-w-md text-lg text-ink-soft">
-            Commercial or home. Austin Stickley, Toledo Power Wash. Tell us the property — we’ll
-            follow up.
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            Residential or commercial. Share a few details about the property and we will follow up
+            with next steps. Owner: {site.owner}.
           </p>
 
-          <div className="mt-8 space-y-3">
-            <div className="border border-line bg-white p-5">
-              <p className="text-xs font-bold uppercase tracking-widest text-mud">Business</p>
-              <p className="mt-1 font-display text-2xl font-extrabold text-ink">{site.name}</p>
-              <p className="text-sm text-ink-soft">Owner: {site.owner}</p>
-              <p className="text-sm text-ink-soft">Toledo & NW Ohio</p>
-            </div>
-            {(tel || site.email) && (
-              <div className="border border-line bg-white p-5 text-sm">
-                {tel && (
-                  <p>
-                    <a href={tel} className="font-bold text-rust hover:underline">
-                      {phoneLabel()}
-                    </a>
-                  </p>
-                )}
-                <p className="mt-1">
-                  <a href={`mailto:${site.email}`} className="text-ink-soft hover:text-rust">
-                    {site.email}
+          <div className="mt-8 space-y-4">
+            <div className="card">
+              <p className="text-sm font-semibold text-slate-900">{site.name}</p>
+              <p className="mt-1 text-sm text-slate-600">Toledo & Northwest Ohio</p>
+              {tel && label && (
+                <p className="mt-3">
+                  <a href={tel} className="text-base font-semibold text-teal-700 hover:underline">
+                    {label}
                   </a>
                 </p>
-              </div>
-            )}
-            <div className="border border-line bg-concrete p-5 text-sm text-ink-soft">
-              <p className="font-bold text-ink">For a faster quote, include:</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5">
-                <li>Property type</li>
-                <li>Rough size or photos</li>
-                <li>One-time vs monthly/quarterly</li>
-                <li>Access notes</li>
+              )}
+              <p className="mt-1 text-sm">
+                <a href={`mailto:${site.email}`} className="text-slate-600 hover:text-teal-700">
+                  {site.email}
+                </a>
+              </p>
+            </div>
+
+            <div className="card bg-slate-50">
+              <p className="text-sm font-semibold text-slate-900">For a faster estimate, include:</p>
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-slate-600">
+                <li>Property type (home, apartment, retail, etc.)</li>
+                <li>What needs cleaned</li>
+                <li>Approximate size or photos</li>
+                <li>One-time vs. recurring service</li>
+                <li>Access notes (gates, hours, water source)</li>
               </ul>
             </div>
           </div>
         </div>
+
         <QuoteForm />
       </div>
     </section>

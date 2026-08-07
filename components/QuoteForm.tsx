@@ -3,33 +3,38 @@
 import { FormEvent, useState } from "react";
 import { phoneHref, phoneLabel, site } from "../lib/site";
 
-export function QuoteForm({ compact = false }: { compact?: boolean }) {
+export function QuoteForm() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
   const tel = phoneHref();
+  const label = phoneLabel();
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = String(data.get("name") || "");
-    const phone = String(data.get("phone") || "");
-    const email = String(data.get("email") || "");
-    const service = String(data.get("service") || "");
-    const message = String(data.get("message") || "");
-    const address = String(data.get("address") || "");
+    const payload = {
+      name: String(data.get("name") || ""),
+      phone: String(data.get("phone") || ""),
+      email: String(data.get("email") || ""),
+      service: String(data.get("service") || ""),
+      address: String(data.get("address") || ""),
+      message: String(data.get("message") || ""),
+    };
 
-    const subject = encodeURIComponent(`Quote — ${service} — ${name}`);
+    const subject = encodeURIComponent(
+      `Estimate request — ${payload.service || "Power washing"} — ${payload.name}`
+    );
     const body = encodeURIComponent(
       [
-        `Name: ${name}`,
-        `Phone: ${phone}`,
-        `Email: ${email}`,
-        `Service: ${service}`,
-        `Property: ${address}`,
+        `Name: ${payload.name}`,
+        `Phone: ${payload.phone}`,
+        `Email: ${payload.email}`,
+        `Service: ${payload.service}`,
+        `Property address: ${payload.address}`,
         "",
-        message,
+        payload.message,
         "",
-        "— Toledo Power Wash website",
+        "Sent from toledo-power-wash.vercel.app",
       ].join("\n")
     );
 
@@ -39,88 +44,90 @@ export function QuoteForm({ compact = false }: { compact?: boolean }) {
   }
 
   return (
-    <form
-      onSubmit={onSubmit}
-      className={`rounded-lg border border-line bg-white p-6 shadow-sm sm:p-8 ${compact ? "" : ""}`}
-    >
-      <div className="mb-6 border-b border-line pb-5">
-        <p className="text-xs font-bold uppercase tracking-widest text-rust">Free quote</p>
-        <h2 className="mt-1 font-display text-3xl font-extrabold tracking-tight text-ink">
-          Tell us about the property
-        </h2>
-        <p className="mt-2 text-sm text-ink-soft">
-          Commercial or residential. Same-week visits when we can.
+    <form onSubmit={onSubmit} className="card shadow-soft" id="estimate">
+      <div className="mb-6">
+        <h2 className="text-xl font-bold text-slate-900">Request a free estimate</h2>
+        <p className="mt-1 text-sm text-slate-600">
+          Tell us about the property. We typically respond the same business day.
         </p>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="label" htmlFor="name">
-            Name
+            Full name
           </label>
-          <input id="name" name="name" required className="field" placeholder="Your name" />
+          <input id="name" name="name" required className="field" autoComplete="name" />
         </div>
         <div>
           <label className="label" htmlFor="phone">
             Phone
           </label>
-          <input id="phone" name="phone" type="tel" required className="field" placeholder="(419) …" />
+          <input id="phone" name="phone" type="tel" required className="field" autoComplete="tel" />
         </div>
         <div>
           <label className="label" htmlFor="email">
             Email
           </label>
-          <input id="email" name="email" type="email" className="field" placeholder="you@company.com" />
+          <input id="email" name="email" type="email" className="field" autoComplete="email" />
         </div>
         <div>
           <label className="label" htmlFor="service">
-            What needs cleaned
+            Service needed
           </label>
-          <select id="service" name="service" className="field" defaultValue="Parking / sidewalks">
-            <option>Parking / sidewalks</option>
-            <option>Dumpster pad</option>
-            <option>Parking lot</option>
+          <select id="service" name="service" className="field" defaultValue="House washing">
+            <option>House washing</option>
+            <option>Driveway cleaning</option>
+            <option>Parking lot / sidewalks</option>
+            <option>Dumpster pad cleaning</option>
             <option>Building exterior</option>
-            <option>House wash</option>
-            <option>Driveway</option>
-            <option>Monthly / quarterly plan</option>
+            <option>Recurring commercial plan</option>
+            <option>Other</option>
           </select>
         </div>
         <div className="sm:col-span-2">
           <label className="label" htmlFor="address">
-            Address or city
+            Property address or city
           </label>
-          <input id="address" name="address" className="field" placeholder="Toledo, OH or full address" />
+          <input
+            id="address"
+            name="address"
+            className="field"
+            placeholder="Toledo, OH or full street address"
+            autoComplete="street-address"
+          />
         </div>
         <div className="sm:col-span-2">
           <label className="label" htmlFor="message">
-            Details
+            Project details
           </label>
           <textarea
             id="message"
             name="message"
-            rows={3}
+            rows={4}
             className="field"
-            placeholder="Size, photos, access, preferred days…"
+            placeholder="What needs cleaned, approximate size, photos available, preferred timing…"
           />
         </div>
       </div>
 
-      <button type="submit" className="btn-hivis mt-6 w-full sm:w-auto">
-        Send quote request
+      <button type="submit" className="btn-primary mt-6 w-full sm:w-auto">
+        Get my free estimate
       </button>
 
-      {tel && (
-        <p className="mt-4 text-sm text-ink-soft">
-          Or call{" "}
-          <a href={tel} className="font-bold text-rust hover:underline">
-            {phoneLabel()}
+      {tel && label && (
+        <p className="mt-4 text-sm text-slate-600">
+          Prefer to talk? Call{" "}
+          <a href={tel} className="font-semibold text-teal-700 hover:underline">
+            {label}
           </a>
         </p>
       )}
+
       {status === "sent" && (
-        <p className="mt-3 text-sm font-semibold text-[var(--ok)]">
-          Opening your email with the details…
+        <p className="mt-3 text-sm font-medium text-teal-800">
+          Opening your email app with the estimate request. If nothing opens, email {site.email}{" "}
+          directly.
         </p>
       )}
     </form>

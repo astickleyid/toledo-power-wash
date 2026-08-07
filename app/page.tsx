@@ -1,291 +1,258 @@
 import Link from "next/link";
 import { QuoteForm } from "../components/QuoteForm";
-import { phoneHref, phoneLabel } from "../lib/site";
-
-const jobs = [
-  {
-    title: "Parking lots & sidewalks",
-    body: "Even surface cleaner finish. Plazas, apartments, offices — salt, grime, tire marks.",
-  },
-  {
-    title: "Dumpster pads",
-    body: "Grease and trash juice don’t wait. Higher-margin clean that PMs actually care about.",
-  },
-  {
-    title: "Buildings & storefronts",
-    body: "Soft wash / controlled exterior clean so you don’t blast siding into next week.",
-  },
-  {
-    title: "Houses & driveways",
-    body: "Residential fill while we stack commercial routes. Curb appeal after winter.",
-  },
-];
-
-const areas = [
-  "Toledo",
-  "Sylvania",
-  "Maumee",
-  "Perrysburg",
-  "Oregon",
-  "Holland",
-  "Rossford",
-  "Waterville",
-  "Lucas County",
-];
+import { faqs, phoneHref, phoneLabel, serviceAreas, services, site } from "../lib/site";
 
 export default function HomePage() {
   const tel = phoneHref();
+  const label = phoneLabel();
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       {/* HERO */}
-      <section className="texture border-b border-line">
-        <div className="wrap grid items-center gap-10 py-12 lg:grid-cols-12 lg:gap-8 lg:py-16">
-          <div className="lg:col-span-7">
-            <p className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white/70 px-3 py-1 text-xs font-bold uppercase tracking-widest text-ink">
-              <span className="h-2 w-2 rounded-full bg-ink" />
-              Toledo, Ohio · Local owner
+      <section className="border-b border-slate-200 bg-slate-50">
+        <div className="wrap grid items-center gap-10 py-14 lg:grid-cols-2 lg:py-20">
+          <div>
+            <p className="text-sm font-semibold text-teal-700">
+              Toledo, Ohio · Commercial & residential
             </p>
-
-            <h1 className="mt-5 font-display text-[clamp(2.75rem,8vw,5.5rem)] font-extrabold leading-[0.9] tracking-tight text-ink">
-              Power washing
-              <br />
-              <span className="text-rust">that looks like</span>
-              <br />
-              you give a damn.
+            <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem] lg:leading-[1.1]">
+              Professional power washing in Toledo, OH
             </h1>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-              Commercial lots, pads, sidewalks, and buildings — with residential when it fits the
-              route.{" "}
-              <strong className="text-ink">Austin Stickley</strong>, Toledo Power Wash. Free
-              quotes. Recurring plans for property managers.
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
+              {site.name} provides reliable exterior cleaning for homes and businesses across
+              Toledo and Northwest Ohio—house washing, driveways, parking lots, dumpster pads, and
+              building exteriors. Free estimates. Locally owned by {site.owner}.
             </p>
-
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/contact" className="btn-hivis">
-                Get a free quote
+              <Link href="/contact" className="btn-primary">
+                Get a free estimate
               </Link>
-              <Link href="/commercial" className="btn-dark">
-                For property managers
+              <Link href="/commercial" className="btn-secondary">
+                Commercial services
               </Link>
-              {tel && (
-                <a href={tel} className="btn-ghost">
-                  Call {phoneLabel()}
+              {tel && label && (
+                <a href={tel} className="btn-secondary">
+                  Call {label}
                 </a>
               )}
             </div>
-
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 border-t border-ink/10 pt-8">
-              <div>
-                <dt className="font-display text-3xl font-extrabold text-ink">Local</dt>
-                <dd className="text-xs font-semibold uppercase tracking-wide text-mud">
-                  Toledo based
-                </dd>
-              </div>
-              <div>
-                <dt className="font-display text-3xl font-extrabold text-ink">Insured</dt>
-                <dd className="text-xs font-semibold uppercase tracking-wide text-mud">
-                  GL for commercial
-                </dd>
-              </div>
-              <div>
-                <dt className="font-display text-3xl font-extrabold text-ink">Photos</dt>
-                <dd className="text-xs font-semibold uppercase tracking-wide text-mud">
-                  Every job
-                </dd>
-              </div>
-            </dl>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-slate-700">
+              <li>✓ Free estimates</li>
+              <li>✓ Photo documentation</li>
+              <li>✓ Commercial COI available</li>
+              <li>✓ Recurring service plans</li>
+            </ul>
           </div>
-
-          <div className="lg:col-span-5">
-            <div className="split-ba mb-4 shadow-lg">
-              <div className="seam" />
-            </div>
-            <p className="text-center text-xs font-bold uppercase tracking-widest text-mud">
-              Dirty concrete → managed property
-            </p>
-          </div>
+          <QuoteForm />
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="border-b border-line bg-ink py-4 text-white">
-        <div className="wrap flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center text-sm font-semibold tracking-wide">
-          <span>Apartments</span>
-          <span className="text-hivis">·</span>
-          <span>Retail plazas</span>
-          <span className="text-hivis">·</span>
-          <span>Restaurants</span>
-          <span className="text-hivis">·</span>
-          <span>Gas stations</span>
-          <span className="text-hivis">·</span>
-          <span>Homes</span>
-        </div>
+      {/* SEO keyword strip — natural */}
+      <section className="border-b border-slate-200 bg-white py-3">
+        <p className="wrap text-center text-sm text-slate-500">
+          Searching for <strong className="font-medium text-slate-700">power washing in Toledo</strong>,{" "}
+          <strong className="font-medium text-slate-700">Toledo pressure washing</strong>, or{" "}
+          <strong className="font-medium text-slate-700">house washing near you</strong>? We serve
+          homes and commercial properties throughout the metro area.
+        </p>
       </section>
 
-      {/* WORK */}
-      <section id="work" className="wrap py-16 sm:py-20">
-        <div className="max-w-2xl">
-          <p className="text-xs font-bold uppercase tracking-widest text-rust">What we clean</p>
-          <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
-            Built for commercial first.
-            <br />
-            <span className="text-mud">Residential keeps the calendar full.</span>
-          </h2>
-        </div>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {jobs.map((j, i) => (
-            <article
-              key={j.title}
-              className="group border border-line bg-white p-6 transition hover:border-ink hover:shadow-md"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <h3 className="font-display text-2xl font-extrabold tracking-tight text-ink">
-                  {j.title}
-                </h3>
-                <span className="font-display text-3xl font-extrabold text-line group-hover:text-hivis">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">{j.body}</p>
+      {/* SERVICES */}
+      <section id="services" className="wrap py-16 sm:py-20">
+        <h2 className="section-title">Power washing services in Toledo</h2>
+        <p className="section-lead">
+          From residential exteriors to commercial properties, we focus on clean results, clear
+          communication, and pricing you understand before work begins.
+        </p>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <article key={s.slug} className="card hover:border-teal-200">
+              <h3 className="text-lg font-bold text-slate-900">{s.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.summary}</p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* PM BAND */}
-      <section className="bg-ink text-white">
-        <div className="wrap grid items-center gap-8 py-14 lg:grid-cols-2 lg:py-16">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest text-hivis">
-              Property managers
-            </p>
-            <h2 className="mt-2 font-display text-4xl font-extrabold leading-none tracking-tight sm:text-5xl">
-              Stop firefighting
-              <br />
-              exterior appearance.
-            </h2>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/85">
-              Monthly and quarterly packages. Photo documentation. COI on file. Discounted first
-              clean when you lock 6–12 months.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/commercial" className="btn-hivis">
-                See commercial packages
-              </Link>
-              <Link href="/contact" className="btn border-2 border-white bg-transparent text-white hover:bg-white hover:text-rust">
-                Book a site walk
-              </Link>
-            </div>
-          </div>
-          <ul className="space-y-3 rounded-lg border border-white/20 bg-black/25 p-6 text-sm">
+      {/* WHY US */}
+      <section className="border-y border-slate-200 bg-slate-50">
+        <div className="wrap py-16 sm:py-20">
+          <h2 className="section-title">Why hire Toledo Power Wash</h2>
+          <p className="section-lead">
+            Property owners and managers need a vendor who shows up prepared, protects the site, and
+            documents the work.
+          </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              "Certificate of insurance for your vendor file",
-              "Before & after photos every visit",
-              "Written scope — not “we’ll see when we get there”",
-              "Route-dense scheduling across your Toledo sites",
-              "One contact: Austin",
+              {
+                t: "Local & accountable",
+                d: `Owned by ${site.owner}. You work with a local operator—not a call center or revolving subcontractors.`,
+              },
+              {
+                t: "Clear estimates",
+                d: "We quote after photos or a site visit so scope and price are agreed before equipment arrives.",
+              },
+              {
+                t: "Built for commercial needs",
+                d: "Insurance documentation, before-and-after photos, and optional recurring schedules for multi-site portfolios.",
+              },
             ].map((item) => (
-              <li key={item} className="flex gap-3">
-                <span className="mt-0.5 font-bold text-hivis">✓</span>
-                <span>{item}</span>
-              </li>
+              <div key={item.t} className="card">
+                <h3 className="text-base font-bold text-slate-900">{item.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.d}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
-      {/* AREAS + QUOTE */}
-      <section id="areas" className="wrap grid gap-12 py-16 lg:grid-cols-2 lg:py-20">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-widest text-rust">Service area</p>
-          <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
-            Toledo & NW Ohio
+      {/* COMMERCIAL CTA */}
+      <section className="wrap py-16 sm:py-20">
+        <div className="rounded-2xl bg-slate-900 px-8 py-10 text-white sm:px-12 sm:py-12">
+          <p className="text-sm font-semibold text-teal-300">For property managers</p>
+          <h2 className="mt-2 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+            Recurring exterior cleaning for apartments, retail, and commercial sites
           </h2>
-          <p className="mt-4 max-w-md text-ink-soft">
-            We prioritize commercial route density. If you’re nearby and the job fits, we roll.
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-slate-300">
+            Keep sidewalks, dumpster pads, and common areas looking maintained with monthly or
+            quarterly service. Certificates of insurance and photo reports available for your
+            vendor file.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/commercial" className="btn-primary">
+              View commercial options
+            </Link>
+            <Link href="/contact" className="btn border border-white/20 bg-white/10 text-white hover:bg-white/15">
+              Schedule a site visit
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="border-t border-slate-200 bg-white">
+        <div className="wrap py-16 sm:py-20">
+          <h2 className="section-title">How to get started</h2>
+          <ol className="mt-10 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                n: "1",
+                t: "Request an estimate",
+                d: "Share the address, what needs cleaned, and photos if you have them.",
+              },
+              {
+                n: "2",
+                t: "Review the quote",
+                d: "You get a clear scope and price. Commercial sites can include a walkthrough.",
+              },
+              {
+                n: "3",
+                t: "We clean and document",
+                d: "Work is completed to the agreed scope with before-and-after photos.",
+              },
+            ].map((step) => (
+              <li key={step.n} className="card">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-teal-700 text-sm font-bold text-white">
+                  {step.n}
+                </span>
+                <h3 className="mt-4 text-base font-bold text-slate-900">{step.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{step.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* SERVICE AREA */}
+      <section id="service-area" className="border-t border-slate-200 bg-slate-50">
+        <div className="wrap py-16 sm:py-20">
+          <h2 className="section-title">Service area: Toledo & Northwest Ohio</h2>
+          <p className="section-lead">
+            We prioritize Toledo and nearby communities for efficient scheduling and consistent
+            response times.
           </p>
           <ul className="mt-8 flex flex-wrap gap-2">
-            {areas.map((a) => (
+            {serviceAreas.map((area) => (
               <li
-                key={a}
-                className="border border-line bg-white px-3 py-1.5 text-sm font-semibold text-ink"
+                key={area}
+                className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-sm font-medium text-slate-700"
               >
-                {a}
+                {area}
               </li>
             ))}
           </ul>
-
-          <div className="mt-10 border border-line bg-concrete p-6">
-            <p className="font-display text-2xl font-extrabold text-ink">How it works</p>
-            <ol className="mt-4 space-y-4 text-sm text-ink-soft">
-              <li>
-                <strong className="text-ink">1. Scope</strong> — Call, form, or photos. Site walk
-                for commercial when needed.
-              </li>
-              <li>
-                <strong className="text-ink">2. Quote</strong> — Clear number. Min job covers the
-                drive. No mystery fees.
-              </li>
-              <li>
-                <strong className="text-ink">3. Clean + document</strong> — Before/after photos.
-                Done.
-              </li>
-            </ol>
-          </div>
         </div>
-
-        <QuoteForm />
       </section>
 
-      {/* ABOUT */}
-      <section className="border-t border-line bg-concrete">
-        <div className="wrap grid gap-8 py-16 md:grid-cols-5 md:py-20">
-          <div className="md:col-span-2">
-            <p className="text-xs font-bold uppercase tracking-widest text-rust">Owner</p>
-            <h2 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-ink">
-              Austin Stickley
+      {/* FAQ */}
+      <section id="faq" className="wrap py-16 sm:py-20">
+        <h2 className="section-title">Frequently asked questions</h2>
+        <p className="section-lead">
+          Common questions about power washing costs, commercial service, and coverage in Toledo.
+        </p>
+        <div className="mt-10 divide-y divide-slate-200 rounded-xl border border-slate-200 bg-white">
+          {faqs.map((f) => (
+            <details key={f.q} className="group px-6 py-5">
+              <summary className="cursor-pointer list-none text-base font-semibold text-slate-900 marker:content-none [&::-webkit-details-marker]:hidden">
+                <span className="flex items-start justify-between gap-4">
+                  {f.q}
+                  <span className="text-slate-400 group-open:rotate-45">+</span>
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ABOUT + CTA */}
+      <section className="border-t border-slate-200 bg-white">
+        <div className="wrap grid gap-10 py-16 md:grid-cols-2 md:py-20">
+          <div>
+            <h2 className="section-title">About {site.name}</h2>
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
+              {site.name} is a locally owned power washing company serving Toledo and surrounding
+              Northwest Ohio communities. Founder {site.owner} focuses on straightforward
+              communication, careful work around buildings and landscaping, and service options for
+              both homeowners and commercial property managers.
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-slate-600">
+              Whether you need a one-time house wash after winter or a recurring plan for sidewalks
+              and dumpster pads, we are ready to provide a free estimate.
+            </p>
+          </div>
+          <div className="rounded-2xl bg-teal-700 px-8 py-10 text-white">
+            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+              Ready for a cleaner exterior?
             </h2>
-          </div>
-          <div className="md:col-span-3 space-y-4 text-base leading-relaxed text-ink-soft">
-            <p>
-              I’m building Toledo Power Wash as a real commercial vendor — insurance, photo SOPs,
-              recurring contracts — not a weekend flyer operation.
+            <p className="mt-3 text-teal-50">
+              Request your free estimate today. Commercial and residential projects welcome.
             </p>
-            <p>
-              Ohio peak season is spring through fall when winter salt and grime hit hardest. We
-              plan packages around that. If you manage property or just need the house looking
-              right, get a quote.
-            </p>
-            <Link href="/contact" className="btn-primary mt-2">
-              Talk to Austin
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL */}
-      <section className="bg-ink py-16 text-center text-white">
-        <div className="wrap">
-          <h2 className="font-display text-4xl font-extrabold tracking-tight sm:text-6xl">
-            Need power washing
-            <br />
-            <span className="text-hivis">in Toledo?</span>
-          </h2>
-          <p className="mx-auto mt-4 max-w-md text-white/70">
-            Tell us the property. We’ll quote it straight.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/contact" className="btn-hivis">
-              Free quote
-            </Link>
-            {tel && (
-              <a href={tel} className="btn border-2 border-white/30 text-white hover:border-hivis hover:text-hivis">
-                {phoneLabel()}
-              </a>
-            )}
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn bg-white text-teal-900 hover:bg-teal-50">
+                Free estimate
+              </Link>
+              {tel && label && (
+                <a href={tel} className="btn border border-white/30 text-white hover:bg-white/10">
+                  {label}
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </section>

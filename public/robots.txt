@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://astickleyid.github.io/toledo-power-wash/sitemap.xml
+Sitemap: https://toledo-power-wash.vercel.app/sitemap.xml

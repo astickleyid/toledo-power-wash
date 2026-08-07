@@ -1,95 +1,103 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { QuoteForm } from "../../components/QuoteForm";
+import { site } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Commercial Power Washing for Property Managers",
+  title: "Commercial Power Washing for Property Managers in Toledo",
   description:
-    "Commercial power washing in Toledo OH for apartments, retail, restaurants, and PMs. Monthly and quarterly packages with photos and COI.",
+    "Commercial power washing in Toledo, OH for apartments, retail plazas, restaurants, and property managers. Recurring exterior cleaning, photo reports, and certificates of insurance.",
+  alternates: { canonical: "/commercial" },
 };
 
-const tiers = [
+const packages = [
   {
     name: "Essential",
-    price: "$150–$300/mo",
-    note: "Smaller sites",
-    items: ["Sidewalks / entries", "Dumpster pad cadence", "Photo report", "One site"],
+    price: "From $150–$300 / month",
+    description: "Best for smaller commercial sites and focused exterior touchpoints.",
+    items: [
+      "Sidewalks and entry paths",
+      "Scheduled dumpster pad service",
+      "Before-and-after photos",
+      "Single-site scheduling",
+    ],
   },
   {
     name: "Managed",
-    price: "$300–$600/mo",
-    note: "Most properties",
+    price: "From $300–$600 / month",
+    description: "Most common for multi-building or higher-traffic properties.",
     featured: true,
-    items: ["Expanded flatwork", "Pads + high traffic", "Priority schedule", "Quarterly review"],
+    items: [
+      "Expanded flatwork coverage",
+      "Dumpster pads and high-traffic zones",
+      "Priority scheduling",
+      "Quarterly exterior review",
+    ],
   },
   {
     name: "Portfolio",
-    price: "Custom",
-    note: "Multi-site",
-    items: ["Route density pricing", "Shared invoicing", "Multiple locations", "PM-ready reports"],
+    price: "Custom pricing",
+    description: "For managers overseeing multiple locations in the Toledo area.",
+    items: [
+      "Multi-site route planning",
+      "Volume-based pricing options",
+      "Consolidated invoicing available",
+      "Reporting suited to ownership updates",
+    ],
   },
 ];
 
 export default function CommercialPage() {
   return (
     <>
-      <section className="texture border-b border-line">
+      <section className="border-b border-slate-200 bg-slate-50">
         <div className="wrap py-14 sm:py-16">
-          <p className="text-xs font-bold uppercase tracking-widest text-rust">
-            Property managers · Commercial
-          </p>
-          <h1 className="mt-3 max-w-3xl font-display text-5xl font-extrabold leading-[0.95] tracking-tight text-ink sm:text-6xl">
-            Exterior cleaning that keeps ownership off your back.
+          <p className="text-sm font-semibold text-teal-700">Commercial services</p>
+          <h1 className="mt-3 max-w-3xl text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+            Commercial power washing for property managers in Toledo
           </h1>
-          <p className="mt-5 max-w-2xl text-lg text-ink-soft">
-            Toledo Power Wash — Austin Stickley. Recurring sidewalks, dumpster pads, lots, and
-            exteriors with photos and insurance docs.
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-600">
+            {site.name} helps apartments, retail centers, restaurants, and commercial properties keep
+            exteriors looking maintained. Recurring plans, documentation, and insurance paperwork
+            available for vendor compliance.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-hivis">
-              Schedule a site walk
+            <Link href="/contact" className="btn-primary">
+              Request a commercial estimate
             </Link>
-            <a href="#packages" className="btn-ghost">
-              View packages
+            <a href="#packages" className="btn-secondary">
+              View package options
             </a>
           </div>
         </div>
       </section>
 
       <section id="packages" className="wrap py-16">
-        <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink">
-          Recurring packages
-        </h2>
-        <p className="mt-2 max-w-xl text-ink-soft">
-          Final pricing after site visit or clear photos. Job minimums apply. Intro discount on first
-          full clean with a 6–12 month agreement.
+        <h2 className="section-title">Recurring package options</h2>
+        <p className="section-lead">
+          Final pricing is based on site size, access, and condition. Quotes are provided after a
+          walkthrough or clear photos. An introductory discount may be available with a 6–12 month
+          service agreement.
         </p>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {tiers.map((t) => (
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {packages.map((p) => (
             <article
-              key={t.name}
-              className={`border p-6 ${
-                t.featured
-                  ? "border-ink bg-ink text-white shadow-lg"
-                  : "border-line bg-white text-ink"
-              }`}
+              key={p.name}
+              className={`card ${p.featured ? "border-teal-600 ring-1 ring-teal-600" : ""}`}
             >
-              {t.featured && (
-                <p className="mb-2 text-xs font-bold uppercase tracking-widest text-hivis">
-                  Most booked
+              {p.featured && (
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-teal-700">
+                  Most requested
                 </p>
               )}
-              <h3 className="font-display text-3xl font-extrabold tracking-tight">{t.name}</h3>
-              <p className={`mt-1 text-lg font-bold ${t.featured ? "text-hivis" : "text-rust"}`}>
-                {t.price}
-              </p>
-              <p className={`text-sm ${t.featured ? "text-white/60" : "text-mud"}`}>{t.note}</p>
-              <ul className="mt-5 space-y-2 text-sm">
-                {t.items.map((i) => (
-                  <li key={i} className="flex gap-2">
-                    <span className={t.featured ? "text-hivis" : "text-rust"}>✓</span>
-                    {i}
+              <h3 className="text-xl font-bold text-slate-900">{p.name}</h3>
+              <p className="mt-1 text-base font-semibold text-teal-800">{p.price}</p>
+              <p className="mt-2 text-sm text-slate-600">{p.description}</p>
+              <ul className="mt-5 space-y-2 text-sm text-slate-700">
+                {p.items.map((item) => (
+                  <li key={item} className="flex gap-2">
+                    <span className="text-teal-700">✓</span>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -98,22 +106,20 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      <section className="border-t border-line bg-concrete">
+      <section className="border-t border-slate-200 bg-slate-50">
         <div className="wrap grid gap-10 py-16 lg:grid-cols-2">
           <div>
-            <h2 className="font-display text-4xl font-extrabold tracking-tight text-ink">
-              What PMs actually need
-            </h2>
-            <ul className="mt-6 space-y-3 text-ink-soft">
-              <li>• COI without chasing</li>
-              <li>• Dumpster pads that don’t embarrass the walkthrough</li>
-              <li>• Someone who shows up on the schedule</li>
-              <li>• Photos for regional / ownership</li>
-              <li>• One vendor for multiple local sites</li>
+            <h2 className="section-title">What property managers typically need</h2>
+            <ul className="mt-6 space-y-3 text-slate-600">
+              <li>• Certificate of insurance for the vendor file</li>
+              <li>• Consistent sidewalk and dumpster pad appearance</li>
+              <li>• Reliable scheduling without repeated follow-up</li>
+              <li>• Before-and-after photos for ownership or regional review</li>
+              <li>• One local contact who can cover multiple sites when possible</li>
             </ul>
-            <p className="mt-8 border-l-4 border-hivis bg-white p-4 text-sm text-ink-soft">
-              Offer: discounted first full clean for a written 6–12 month monthly or quarterly
-              agreement. Quote after site walk or photos.
+            <p className="mt-8 rounded-xl border border-slate-200 bg-white p-5 text-sm leading-relaxed text-slate-600">
+              Minimum job charges apply to cover mobilization. Scope is confirmed in writing before
+              work begins. Contact {site.owner} to discuss your portfolio.
             </p>
           </div>
           <QuoteForm />
