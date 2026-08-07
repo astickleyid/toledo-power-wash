@@ -7,7 +7,7 @@ export const site = {
   phone: process.env.NEXT_PUBLIC_PHONE || "",
   phoneDisplay: process.env.NEXT_PUBLIC_PHONE_DISPLAY || "",
   city: "Toledo, OH",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://toledopowerwash.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://toledo-power-wash.vercel.app",
 };
 
 export function phoneHref(): string | null {

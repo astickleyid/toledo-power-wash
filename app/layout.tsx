@@ -1,30 +1,40 @@
 import type { Metadata } from "next";
+import { Barlow_Condensed, DM_Sans } from "next/font/google";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { site as biz } from "../lib/site";
 import "./globals.css";
 
+const display = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
+});
+
+const body = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+});
+
 const siteUrl = biz.url;
-const telephone = biz.phone || undefined;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(siteUrl.startsWith("http") ? siteUrl : "https://toledo-power-wash.vercel.app"),
   title: {
-    default: "Toledo Power Wash | Power Washing Toledo OH",
+    default: "Toledo Power Wash | Power Washing in Toledo, OH",
     template: "%s | Toledo Power Wash",
   },
   description:
-    "Toledo Power Wash — commercial and residential power washing in Toledo, Ohio. Parking lots, sidewalks, dumpster pads, building exteriors, and house washing. Recurring plans for property managers. Owned by Austin Stickley.",
+    "Local power washing in Toledo, Ohio. Commercial lots, dumpster pads, sidewalks, buildings — plus homes. Owner Austin Stickley. Free quotes. Recurring plans for property managers.",
   keywords: [
     "Toledo power washing",
     "Toledo power wash",
     "Toledo pressure washing",
     "power washing Toledo OH",
     "commercial power washing Toledo",
-    "apartment pressure washing Toledo",
     "dumpster pad cleaning Toledo",
     "house washing Toledo",
-    "parking lot cleaning Toledo",
   ],
   authors: [{ name: "Austin Stickley" }],
   openGraph: {
@@ -33,71 +43,38 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "Toledo Power Wash",
     title: "Toledo Power Wash | Power Washing Toledo OH",
-    description:
-      "Commercial-first power washing in Toledo, Ohio. Recurring exterior clean for property managers + residential fill.",
+    description: "Commercial-first power washing. Toledo & NW Ohio. Free quotes.",
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: siteUrl },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${siteUrl}/#business`,
     name: "Toledo Power Wash",
-    description:
-      "Commercial and residential power washing and soft washing serving Toledo and Northwest Ohio.",
+    description: "Commercial and residential power washing in Toledo, Ohio.",
     url: siteUrl,
-    image: `${siteUrl}/og.png`,
-    telephone: telephone || undefined,
+    telephone: biz.phone || undefined,
     email: biz.email,
-    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Toledo",
       addressRegion: "OH",
       addressCountry: "US",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 41.6528,
-      longitude: -83.5379,
-    },
-    areaServed: [
-      { "@type": "City", name: "Toledo" },
-      { "@type": "AdministrativeArea", name: "Lucas County" },
-      { "@type": "AdministrativeArea", name: "Northwest Ohio" },
-    ],
-    founder: {
-      "@type": "Person",
-      name: "Austin Stickley",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "07:00",
-        closes: "19:00",
-      },
-    ],
-    knowsAbout: [
-      "Power washing",
-      "Pressure washing",
-      "Soft washing",
-      "Commercial exterior cleaning",
-      "Dumpster pad cleaning",
-      "Parking lot cleaning",
-    ],
+    founder: { "@type": "Person", name: "Austin Stickley" },
+    areaServed: ["Toledo", "Sylvania", "Maumee", "Perrysburg", "NW Ohio"],
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <div className="stripe" aria-hidden />
         <Header />
         <main>{children}</main>
         <Footer />

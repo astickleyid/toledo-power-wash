@@ -4,18 +4,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#0B1220",
-        navy: "#0F2744",
-        steel: "#1E3A5F",
-        sky: "#3B82F6",
-        ice: "#E8F1FF",
-        mute: "#94A3B8",
+        concrete: "#ebe7df",
+        paper: "#f7f5f0",
+        ink: "#14161c",
+        "ink-soft": "#3a3f4b",
+        mud: "#6b6256",
+
+        water: "#0a6f9c",
+        "water-deep": "#074d6d",
+        hivis: "#ffb703",
+        line: "#d4cfc4",
       },
       fontFamily: {
-        sans: ["var(--font-geist)", "system-ui", "Segoe UI", "sans-serif"],
-      },
-      boxShadow: {
-        glow: "0 0 40px rgba(59, 130, 246, 0.18)",
+        display: ["var(--font-display)", "Impact", "sans-serif"],
+        body: ["var(--font-body)", "system-ui", "sans-serif"],
       },
     },
   },
